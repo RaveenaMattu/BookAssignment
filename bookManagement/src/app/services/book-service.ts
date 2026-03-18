@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BookInterface } from '../interface/BookInterface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,10 +9,8 @@ import { Observable } from 'rxjs';
 export class BookService {
 
   private api = 'api/allBooks';
+  private httpClient = inject (HttpClient);
 
-  constructor (private httpClient: HttpClient) {
-    // no statements required
-  }
 
   getBooks(): Observable<BookInterface[]> {
     return this.httpClient.get<BookInterface[]>(this.api);
