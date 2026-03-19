@@ -1,8 +1,23 @@
-<div *ngFor="let b of books; trackBy: trackById">
-  <p><strong>ID:</strong> {{ b.id }}</p>
-  <p><strong>Title:</strong> {{ b.title }}</p>
-  <p><strong>Author:</strong> {{ b.author }}</p>
-  <p><strong>Description:</strong> {{ b.description }}</p>
-  <p><strong>Genre:</strong> {{ b.genre }}</p>
-  <p><strong>Year:</strong> {{ b.year }}</p>
-</div>
+
+<h3>List of Books</h3>
+
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr. No.</th>
+      <th scope="col">Book Info</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let b of books; trackBy: trackById">
+      <td>{{ b.id }}.</td>
+      <td>
+        <a class="nav-link" 
+        [routerLink]="['/allBooks', b.id]"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact: true}">{{ b.title }} by {{ b.author}}</a>
+      </td> 
+    </tr>
+  </tbody>
+</table>

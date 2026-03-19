@@ -3,11 +3,12 @@ import { BookService } from '../../services/book-service';
 import { BookInterface } from '../../interface/BookInterface';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-books-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './books-list.html',
   styleUrls: ['./books-list.css'],
 })

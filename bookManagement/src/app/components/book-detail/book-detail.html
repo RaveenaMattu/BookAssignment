@@ -1,0 +1,13 @@
+<div *ngIf="selectedBook; else loading">
+  <h2>{{ selectedBook.title }}</h2>
+  <p><strong>Author:</strong> {{ selectedBook.author }}</p>
+  <p><strong>Description:</strong> {{ selectedBook.description }}</p>
+  <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
+  <p><strong>Year:</strong> {{ selectedBook.year }}</p>
+</div>
+
+<ng-template #loading>
+  <p>Loading book details...</p>
+</ng-template>
+<!-- <h1>DETAIL PAGE WORKING</h1>
+<pre>{{ selectedBook | json }}</pre> -->

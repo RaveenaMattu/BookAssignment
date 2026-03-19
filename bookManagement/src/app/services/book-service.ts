@@ -15,4 +15,7 @@ export class BookService {
   getBooks(): Observable<BookInterface[]> {
     return this.httpClient.get<BookInterface[]>(this.api);
   }
+  viewBook(id:number): Observable<BookInterface> {
+    return this.httpClient.get<BookInterface>(`${this.api}/${id}`);
+  }
 }
