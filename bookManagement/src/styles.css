@@ -1,4 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   padding: 100px 150px;
+  background: url('assets/bkg.jpg') no-repeat center center;
+}
+#container {
+  width: 60%;
+  padding: 2rem 3rem;
+  margin: 3rem auto; 
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.7); 
+  border-radius: 1.5rem;
+  border: 1px solid #e0e0e0;
+  display: grid;
+  justify-items: center; 
+  align-items: start;         
+}
+
+#container .table {
+  width: 100%; 
+  max-width: 650px; 
+  border-collapse: collapse;
+}
+#container .table td,
+#container .table th {
+  border: none;
+  text-align: left;
+  background: transparent;
+}
+#container h3 {
+  margin-top: 50px;
+}
+#details {
+  width: 50%;
+  padding: 2rem 3rem;
+  margin: 3rem auto; 
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.7); 
+  border-radius: 1.5rem;
+  border: 1px solid #e0e0e0;
 }
