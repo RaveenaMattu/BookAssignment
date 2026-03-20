@@ -18,4 +18,25 @@ export class BookService {
   viewBook(id:number): Observable<BookInterface> {
     return this.httpClient.get<BookInterface>(`${this.api}/${id}`);
   }
+  deleteBook(id:number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.api}/${id}`);
+
+  }
+}
+@Injectable({
+  providedIn: 'root',
+})
+export class MessageService {
+  private message: string = '';
+
+  setMessage(msg: string) {
+    this.message = msg;
+  }
+
+  getMessage(): string {
+    setTimeout(()=> {
+      this.message = '';
+    }, 3000);
+    return this.message;
+  }
 }

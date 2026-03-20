@@ -5,6 +5,16 @@
     <p><strong>Description:</strong> {{ selectedBook.description }}</p>
     <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
     <p><strong>Year:</strong> {{ selectedBook.year }}</p>
+    <div id="buttons">
+      <button class="btn btn-primary ms-4">Update Details</button>
+      <!-- <button class="btn btn-danger ms-4" (click)="deleteBook()" >Remove Book</button> -->
+              <a class="btn btn-danger ms-4" 
+        [routerLink]="['/allBooks']"
+        [routerLinkActive]="'active'"
+        (click)="deleteBook()"
+        >Remove Book</a>
+
+    </div>
   </div>
 
   <ng-template #loading>
