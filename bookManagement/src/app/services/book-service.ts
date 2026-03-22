@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { BookInterface } from '../interface/BookInterface';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +10,23 @@ export class BookService {
 
   private api = 'api/allBooks';
   private httpClient = inject (HttpClient);
+   public booksSubject = new BehaviorSubject<BookInterface[]>([]);
+  books$ = this.booksSubject.asObservable(); // expose observable for components
 
-
-  getBooks(): Observable<BookInterface[]> {
-    return this.httpClient.get<BookInterface[]>(this.api);
+  constructor() {
+    this.loadBooks(); // initialize BehaviorSubject
   }
+  loadBooks(): void {
+    this.httpClient.get<BookInterface[]>(this.api)
+      .subscribe({
+        next: (books) => this.booksSubject.next(books),
+        error: (err) => console.error('Error loading books', err)
+      });
+  }
+
+ getBooks(): Observable<BookInterface[]> {
+  return this.books$; // <-- this is the key
+}
   viewBook(id:number): Observable<BookInterface> {
     return this.httpClient.get<BookInterface>(`${this.api}/${id}`);
   }
@@ -23,6 +35,14 @@ export class BookService {
   }
   addBook(book: BookInterface): Observable<BookInterface> {
     return this.httpClient.post<BookInterface>(`${this.api}`, book);
+  }
+    toggleFav(bookId: number): void {
+    const books = this.booksSubject.getValue();
+    const targetBook = books.find(b => b.id === bookId);
+    if (targetBook) {
+      targetBook.isFav = !targetBook.isFav;
+      this.booksSubject.next([...books]); // emit updated array
+    }
   }
 }
 @Injectable({

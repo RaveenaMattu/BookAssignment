@@ -1,20 +1,26 @@
 <div id="details">
-  <div *ngIf="selectedBook; else loading">
+  <div *ngIf="book; else loading">
     <header class="d-flex justify-content-between mb-3">
       <a class="nav-link" 
         [routerLink]="['/allBooks']"
         > ← Back to the list
       </a>
-      <h2 class="mb-4 text-center">{{ selectedBook.title }}</h2>
+      
+      <div class="ms-auto d-flex flex-row">
+        <h2>{{ book.title }}</h2>
+        <button class="btn btn-link text-danger ms-auto" (click)="toggleFav();">
+          <i class="bi" [ngClass]="book.isFav ? 'bi-heart-fill' : 'bi-heart'" ></i>
+        </button>
+        </div>
     </header>
     <div class="d-flex gap-5 mb-4">
       <div>
-        <p><strong>Author:</strong> {{ selectedBook.author }}</p>
-        <p><strong>Description:</strong> {{ selectedBook.description }}</p>
-        <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
-        <p><strong>Year:</strong> {{ selectedBook.year }}</p>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Genre:</strong> {{ book.genre }}</p>
+        <p><strong>Year:</strong> {{ book.year }}</p>
       </div>
-      <img [src]="selectedBook.image" style="width: 130px; height: auto;">
+      <img [src]="book.image" style="width: 130px; height: auto;">
     </div>
     <div id="buttons" class="mt-4">
       <button class="btn btn-primary ms-4">Update Details</button>

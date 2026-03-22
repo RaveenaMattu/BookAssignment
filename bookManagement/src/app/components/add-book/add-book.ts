@@ -72,6 +72,7 @@ export class AddBook {
       genre: this.bookForm.controls.genre.value,
       year: this.bookForm.controls.year.value,
       image: this.bookForm.controls.image.value,
+      isFav: false
     
     };
 

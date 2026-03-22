@@ -22,23 +22,23 @@ export class BooksList implements OnInit {
   private cdr = inject (ChangeDetectorRef);
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe({
-      next: (data) => {
-        this.books = data;        
+    this.bookService.getBooks().subscribe(
+      books => {
+    this.books = books;       
         this.message = this.messageService.getMessage();
         setTimeout(() => {          
           this.message = '';
           this.cdr.markForCheck();
           }, 3000);
         this.cdr.detectChanges();
-        console.log(data);
-      },
-      error: (err) => {
-        console.log('Error loading books', err);
-      }
+        
     });
   }
   trackById(index: number, book: BookInterface) {
-  return book.id;
+    return book.id;
+  }
+  toggleFav(i: number) {
+    const book = this.books[i];
+    this.bookService.toggleFav(book.id);
   }
 }

@@ -5,5 +5,6 @@ export interface BookInterface {
   description: string,
   genre: string,
   year: number,
-  image: string
+  image: string,
+  isFav: boolean
 }

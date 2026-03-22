@@ -15,7 +15,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'A guide to writing clean, maintainable code.',
         genre: 'Programming',
         year: 2008,
-        image: 'image1.png'
+        image: 'image1.png',
+        isFav: false
       },
       {
         id: 2,
@@ -24,7 +25,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Practical strategies for building good habits and breaking bad ones.',
         genre: 'Self Improvement',
         year: 2018,
-        image: 'image2.png'
+        image: 'image2.png',
+        isFav: false
       },
       {
         id: 3,
@@ -33,7 +35,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Tips and practices for becoming a better programmer.',
         genre: 'Programming',
         year: 1999,
-        image: 'image3.png'
+        image: 'image3.png',
+        isFav: false
       },
       {
         id: 4,
@@ -42,7 +45,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Rules for focused success in a distracted world.',
         genre: 'Productivity',
         year: 2016,
-        image: 'image4.png'
+        image: 'image4.png',
+        isFav: false
       },
       {
         id: 5,
@@ -51,7 +55,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'A philosophical story about following your dreams.',
         genre: 'Fiction',
         year: 1988,
-        image: 'image5.png'
+        image: 'image5.png',
+        isFav: false
       },
       {
         id: 6,
@@ -60,7 +65,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Classic book on wealth-building mindset and success.',
         genre: 'Finance',
         year: 1937,
-        image: 'image6.png'
+        image: 'image6.png',
+        isFav: false
       },
       {
         id: 7,
@@ -69,7 +75,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Comprehensive textbook on algorithms and data structures.',
         genre: 'Computer Science',
         year: 2009,
-        image: 'image7.png'
+        image: 'image7.png',
+        isFav: false
       },
       {
         id: 8,
@@ -78,7 +85,8 @@ export class InMemoryData implements InMemoryDbService{
         description: 'Lessons on money, investing, and financial independence.',
         genre: 'Finance',
         year: 1997,
-        image: 'image8.png'
+        image: 'image8.png',
+        isFav: false
       }
     ];
     return { allBooks };
