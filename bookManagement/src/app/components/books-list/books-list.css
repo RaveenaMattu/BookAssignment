@@ -1,4 +1,34 @@
-.nav-link:hover {
+.nav-link:hover, .nav-link {
   text-decoration: underline !important;
   cursor: pointer; /* optional for UX */
+}
+/* Card hover effect */
+.book-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Image consistency */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Title clamp (prevents uneven heights) */
+.card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Optional: smoother button */
+.btn {
+  border-radius: 8px;
 }

@@ -58,6 +58,19 @@
       </div>
     </div>
 
+        <div class="mb-3">
+      <label for="image" class="form-label"><strong>Genre:</strong></label>
+      <input 
+        type="file" 
+        id="image" 
+        class="form-control"
+        formControlName="image"
+        placeholder="Upload Image">
+      <!-- <div *ngIf="bookForm.get('image')?.invalid && bookForm.get('image')?.touched" class="text-danger">
+        Genre is required
+      </div> -->
+    </div>
+
         <!-- Year -->
     <div class="mb-3">
       <label class="form-label">Year</label>

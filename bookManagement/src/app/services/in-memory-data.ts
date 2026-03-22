@@ -14,7 +14,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Robert C. Martin',
         description: 'A guide to writing clean, maintainable code.',
         genre: 'Programming',
-        year: 2008
+        year: 2008,
+        image: 'image1.png'
       },
       {
         id: 2,
@@ -22,7 +23,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'James Clear',
         description: 'Practical strategies for building good habits and breaking bad ones.',
         genre: 'Self Improvement',
-        year: 2018
+        year: 2018,
+        image: 'image2.png'
       },
       {
         id: 3,
@@ -30,7 +32,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Andrew Hunt & David Thomas',
         description: 'Tips and practices for becoming a better programmer.',
         genre: 'Programming',
-        year: 1999
+        year: 1999,
+        image: 'image3.png'
       },
       {
         id: 4,
@@ -38,7 +41,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Cal Newport',
         description: 'Rules for focused success in a distracted world.',
         genre: 'Productivity',
-        year: 2016
+        year: 2016,
+        image: 'image4.png'
       },
       {
         id: 5,
@@ -46,7 +50,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Paulo Coelho',
         description: 'A philosophical story about following your dreams.',
         genre: 'Fiction',
-        year: 1988
+        year: 1988,
+        image: 'image5.png'
       },
       {
         id: 6,
@@ -54,7 +59,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Napoleon Hill',
         description: 'Classic book on wealth-building mindset and success.',
         genre: 'Finance',
-        year: 1937
+        year: 1937,
+        image: 'image6.png'
       },
       {
         id: 7,
@@ -62,7 +68,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Thomas H. Cormen',
         description: 'Comprehensive textbook on algorithms and data structures.',
         genre: 'Computer Science',
-        year: 2009
+        year: 2009,
+        image: 'image7.png'
       },
       {
         id: 8,
@@ -70,7 +77,8 @@ export class InMemoryData implements InMemoryDbService{
         author: 'Robert Kiyosaki',
         description: 'Lessons on money, investing, and financial independence.',
         genre: 'Finance',
-        year: 1997
+        year: 1997,
+        image: 'image8.png'
       }
     ];
     return { allBooks };

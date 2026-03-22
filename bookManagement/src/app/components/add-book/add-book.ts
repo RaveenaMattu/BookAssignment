@@ -47,12 +47,14 @@ export class AddBook {
     author: FormControl<string>;
     description: FormControl<string>;
     genre: FormControl<string>;
+    image: FormControl<string>;
     year: FormControl<number>;
   }>({
     title: new FormControl('', { validators: [Validators.required], nonNullable: true }),
     author: new FormControl('', { validators: [Validators.required], nonNullable: true }),
     description: new FormControl('', { validators: [Validators.required, Validators.minLength(10)], nonNullable: true }),
     genre: new FormControl('', { validators: [Validators.required], nonNullable: true }),
+    image: new FormControl('', { validators: [Validators.required], nonNullable: true }),
     year: new FormControl(0, { validators: [Validators.required, Validators.min(0)], nonNullable: true }),
   });
 
@@ -68,7 +70,9 @@ export class AddBook {
       author: this.bookForm.controls.author.value,
       description: this.bookForm.controls.description.value,
       genre: this.bookForm.controls.genre.value,
-      year: this.bookForm.controls.year.value
+      year: this.bookForm.controls.year.value,
+      image: this.bookForm.controls.image.value,
+    
     };
 
     // Call the service
