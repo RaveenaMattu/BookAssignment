@@ -1,7 +1,13 @@
 <div id="container">
-  <h3>List of Books</h3>
+  <header class="d-flex justify-content-between mb-3 m-0">
+    <h3 class="m-0 ms-4">List of Books</h3>
+    <a class="btn btn-dark ms-4" 
+      [routerLink]="['/addBook']"
+      >+ Add Book
+    </a>
+  </header>
   @if(message){
-    <p class="text-danger m-2">
+    <p class="text-success m-2">
       {{message}}
     </p>
   }

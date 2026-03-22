@@ -20,7 +20,9 @@ export class BookService {
   }
   deleteBook(id:number): Observable<void> {
     return this.httpClient.delete<void>(`${this.api}/${id}`);
-
+  }
+  addBook(book: BookInterface): Observable<BookInterface> {
+    return this.httpClient.post<BookInterface>(`${this.api}`, book);
   }
 }
 @Injectable({

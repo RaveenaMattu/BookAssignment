@@ -1,6 +1,12 @@
 <div id="details">
   <div *ngIf="selectedBook; else loading">
-    <h2 class="mb-4 text-center">{{ selectedBook.title }}</h2>
+    <header class="d-flex justify-content-between mb-3">
+      <a class="nav-link" 
+        [routerLink]="['/allBooks']"
+        > ← Back to the list
+      </a>
+      <h2 class="mb-4 text-center">{{ selectedBook.title }}</h2>
+    </header>
     <p><strong>Author:</strong> {{ selectedBook.author }}</p>
     <p><strong>Description:</strong> {{ selectedBook.description }}</p>
     <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
@@ -8,11 +14,12 @@
     <div id="buttons">
       <button class="btn btn-primary ms-4">Update Details</button>
       <!-- <button class="btn btn-danger ms-4" (click)="deleteBook()" >Remove Book</button> -->
-              <a class="btn btn-danger ms-4" 
-        [routerLink]="['/allBooks']"
-        [routerLinkActive]="'active'"
-        (click)="deleteBook()"
-        >Remove Book</a>
+        <a class="btn btn-danger ms-4" 
+          [routerLink]="['/allBooks']"
+          [routerLinkActive]="'active'"
+          (click)="deleteBook()"
+          >Remove Book
+        </a>
 
     </div>
   </div>

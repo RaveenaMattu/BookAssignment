@@ -3,6 +3,6 @@ export interface BookInterface {
   title: string
   author: string
   description: string
-  genre: string
+  genre: string,
   year: number
 }

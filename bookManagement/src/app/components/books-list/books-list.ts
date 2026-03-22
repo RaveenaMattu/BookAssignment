@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 export class BooksList implements OnInit {
 
   books: BookInterface[] = [];
+  sucessMessage = '';
   message = '';
   private bookService = inject(BookService);
   private messageService = inject(MessageService);

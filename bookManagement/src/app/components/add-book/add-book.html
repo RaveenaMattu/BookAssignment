@@ -1,0 +1,82 @@
+<div class="container mt-4 d-flex justify-content-center flex-column align-items-center">
+  <h3>Add a New Book</h3>
+  <form [formGroup]="bookForm" (ngSubmit)="addNewBook()" class="addForm">
+
+    <!-- Title -->
+    <div class="mb-3">
+      <label for="title" class="form-label"><strong>Title:</strong></label>
+      <input 
+        type="text" 
+        id="title" 
+        class="form-control"
+        formControlName="title"
+        placeholder="Enter book title">
+      <div *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched" class="text-danger">
+        Title is required
+      </div>
+    </div>
+
+    <!-- Author -->
+    <div class="mb-3">
+      <label for="author" class="form-label"><strong>Author:</strong></label>
+      <input 
+        type="text" 
+        id="author" 
+        class="form-control"
+        formControlName="author"
+        placeholder="Enter author name">
+      <div *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched" class="text-danger">
+        Author is required
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label"><strong>Description:</strong></label>
+      <textarea 
+        id="description"
+        class="form-control"
+        formControlName="description"
+        rows="3"
+        placeholder="Enter book description"></textarea>
+      <div *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched" class="text-danger">
+        Description is required (min 10 characters)
+      </div>
+    </div>
+
+    <!-- Genre -->
+    <div class="mb-3">
+      <label for="genre" class="form-label"><strong>Genre:</strong></label>
+      <input 
+        type="text" 
+        id="genre" 
+        class="form-control"
+        formControlName="genre"
+        placeholder="Enter book genre">
+      <div *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched" class="text-danger">
+        Genre is required
+      </div>
+    </div>
+
+        <!-- Year -->
+    <div class="mb-3">
+      <label class="form-label">Year</label>
+      <select class="form-select" formControlName="year">
+        <option value="" [ngValue]="null">Select Year</option>
+        <option *ngFor="let y of years" [value]="y">
+          {{ y }}
+        </option>
+      </select>
+
+      <div *ngIf="bookForm.controls.year.invalid && bookForm.controls.year.touched" class="text-danger">
+        Please select a valid year
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-dark" [disabled]="bookForm.invalid">
+      Add Book
+    </button>
+
+  </form>
+</div>
