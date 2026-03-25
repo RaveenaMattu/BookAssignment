@@ -18,7 +18,7 @@ export class AddBook {
   books: BookInterface[] = [];
   private bookService = inject (BookService);
   private router = inject (Router);
-  private sucessMessage = inject (MessageService);
+  private successMessage = inject (MessageService);
 
   years: number[] = [];
 
@@ -71,7 +71,7 @@ export class AddBook {
       description: this.bookForm.controls.description.value,
       genre: this.bookForm.controls.genre.value,
       year: this.bookForm.controls.year.value,
-      image: this.bookForm.controls.image.value,
+      image : this.bookForm.controls.image.value,
       isFav: false
     
     };
@@ -81,7 +81,7 @@ export class AddBook {
       next: (book) => {
         this.books.push(book);       
         this.router.navigate(['/allBooks']);   // navigate to the list
-        this.sucessMessage.setMessage ('Book added successfully!!');
+        this.successMessage.setMessage ('Book added successfully!!');
       },
       error: (err) => console.error('Error adding book:', err)
     });

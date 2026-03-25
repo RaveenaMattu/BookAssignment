@@ -15,25 +15,25 @@ import { RouterModule } from '@angular/router';
 export class BooksList implements OnInit {
 
   books: BookInterface[] = [];
-  sucessMessage = '';
+  // successMessage = '';
   message = '';
   private bookService = inject(BookService);
   private messageService = inject(MessageService);
   private cdr = inject (ChangeDetectorRef);
 
-  ngOnInit() {
-    this.bookService.getBooks().subscribe(
-      books => {
-    this.books = books;       
-        this.message = this.messageService.getMessage();
-        setTimeout(() => {          
-          this.message = '';
-          this.cdr.markForCheck();
-          }, 3000);
-        this.cdr.detectChanges();
-        
-    });
-  }
+ngOnInit() {
+  // subscribe to books
+  this.bookService.getBooks().subscribe(books => {
+    this.books = books;
+    this.cdr.detectChanges();
+  });
+
+  // subscribe to message
+  this.messageService.message$.subscribe(msg => {
+    this.message = msg;
+    this.cdr.detectChanges();
+  });
+}
   trackById(index: number, book: BookInterface) {
     return book.id;
   }

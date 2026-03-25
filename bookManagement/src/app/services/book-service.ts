@@ -36,29 +36,26 @@ export class BookService {
   addBook(book: BookInterface): Observable<BookInterface> {
     return this.httpClient.post<BookInterface>(`${this.api}`, book);
   }
-    toggleFav(bookId: number): void {
-    const books = this.booksSubject.getValue();
-    const targetBook = books.find(b => b.id === bookId);
-    if (targetBook) {
-      targetBook.isFav = !targetBook.isFav;
-      this.booksSubject.next([...books]); // emit updated array
-    }
+  toggleFav(bookId: number): void {
+  const books = this.booksSubject.getValue();
+  const targetBook = books.find(b => b.id === bookId);
+  if (targetBook) {
+    targetBook.isFav = !targetBook.isFav;
+    this.booksSubject.next([...books]); // emit updated array
   }
+}
 }
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
-  private message: string = '';
+    private messageSubject = new BehaviorSubject<string>('');
+  message$ = this.messageSubject.asObservable();
 
-  setMessage(msg: string) {
-    this.message = msg;
-  }
-
-  getMessage(): string {
-    setTimeout(()=> {
-      this.message = '';
+ setMessage(msg: string) {
+    this.messageSubject.next(msg);
+    setTimeout(() => {
+      this.messageSubject.next('');
     }, 3000);
-    return this.message;
   }
 }
